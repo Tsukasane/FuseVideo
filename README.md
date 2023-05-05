@@ -22,12 +22,13 @@ Hopefully, this README file can serve as the hand-in report for the class, since
 
 This idea comes from a practical need. I want to make an opening for my skating video, where two performers cosplay Wednesday and Enid, two characters of the Netflix series *Wednesday*. Fans of this series know that Wednesday has a faithful servant, the Thing, a human hand-like creature that can think independently. I want to bring Thing to the opening of my video.
 
-In the beginning, I naively believed that only using Poisson confusion would be fine, as the demo in the original paper shows even though the backgrounds of the two images are slightly different, this method can still generate natural results. However, the source video for Thing is very noisy with a messy background. If I brutally Poisson confuse them, the brightness and balance of the output image will become wired. That's the time when image segmentation comes to my mind. Empowered by the recently released large model, SAM, Thing can be separated from the original frame in a scraped quality since the model cannot handle low resolution and blur that well.
+In the beginning, I naively believed that only using Poisson confusion would be fine, as the demo in the [original paper](https://www.cs.jhu.edu/~misha/Fall07/Papers/Perez03.pdf) shows even though the backgrounds of the two images are slightly different, this method can still generate natural results. However, the source video for Thing is very noisy with a messy background. If I brutally Poisson confuse them, the brightness and balance of the output image will become wired. That's the time when image segmentation comes to my mind. Empowered by the recently released large model, SAM, Thing can be separated from the original frame in a scraped quality since the model cannot handle low resolution and blur that well.
 
-In addition, the performance of using Poisson confusion plus image segmentation is also better than barely using segmentation. Because Poisson Confusion calculates the gradient of images, it fuses the two inputs more naturally, making the output less like a sticker on the background.
+In addition, the performance of using Poisson confusion plus image segmentation is also better than barely using segmentation. Because Poisson confusion calculates the gradient of images, it fuses the two inputs more naturally, making the output less like a sticker on the background.
 
 ## Installation
-All right then, I will show you my way of running the code in the following. It is ok for you to make changes and creative implementation of it.
+
+This is a simple tutorial for using the code.
 
 Create a virtual environment using conda
 ```
